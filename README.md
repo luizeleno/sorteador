@@ -3,7 +3,7 @@ Sorteador de pontos para concursos e processos seletivos online da EEL/USP
 
 ### Informações
 
-* Os pontos a serem sorteados estão no arquivo `pontossorteio.yml` do diretório `_data`, que contém uma lista `oficial` e uma de `exemplo`. Ambas devem ter o mesmo número de pontos, mas não há limite para tal número.
+* Os pontos a serem sorteados estão no arquivo `pontossorteio.yml` do diretório `_data` (no ramo `gh-pages`), que contém uma lista `oficial` e uma de `exemplo`. Ambas devem ter o mesmo número de pontos, mas não há limite para tal número.
 * Para usar o sorteador, carregue uma das listas (`exemplo` ou `oficial`). Use então o botão **Sortear ponto** para fazer o sorteio. Este botão ficará desabilitado até você clicar em "Apagar seleção".
 * Alternativamente, você pode editar manualmente os campos dos pontos, mas perderá as alterações se fechar ou recarregar a página.
 * Uma versão operacional do Sorteador está em <https://computeel.org/sorteador/>.
