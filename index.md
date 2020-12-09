@@ -29,7 +29,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 ### Informações
 
 * Para usar o sorteador, carregue uma das listas (clicando em **Carregar exemplo** ou **Carregar pontos**). Use então o botão **Sortear ponto** para fazer o sorteio. Este botão ficará desabilitado até você clicar em "Apagar seleção".
-* 
+
 <script>
 document.getElementById("sorteio").disabled = true;
 document.getElementById("apagar").disabled = true;
