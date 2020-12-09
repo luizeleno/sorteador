@@ -5,7 +5,7 @@
 
 $primary: #11998e;
 $secondary: #38ef7d;
-$yellow: #dbd969;
+$selected: #e09b3a;
 $white: #fff;
 $gray: #9b9b9b;
 .form__group {
@@ -22,7 +22,7 @@ $gray: #9b9b9b;
   border-bottom: 2px solid $gray;
   outline: 0;
   // font-size: 1.3rem;
-  color: $primary;
+  color: $secondary;
   padding: 0px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -54,7 +54,7 @@ $gray: #9b9b9b;
     display: block;
     transition: 0.2s;
     // font-size: 1rem;
-    color: $yellow;
+    color: $selected;
     font-weight:700;    
   }
   padding-bottom: 6px;  
@@ -72,7 +72,7 @@ $gray: #9b9b9b;
     border-bottom: 2px solid $gray;
     outline: 0;
     // font-size: 1.3rem;
-    color: $yellow;
+    color: $selected;
     padding: 0px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -83,10 +83,10 @@ $gray: #9b9b9b;
     display: block;
     transition: 0.2s;
     // font-size: 1rem;
-    color: $yellow;
+    color: $selected;
     font-weight:700;
   }
-  color: $yellow;
+  color: $selected;
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
