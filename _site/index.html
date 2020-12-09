@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=8b9c16d7199facbc0b9b59b83d74bd021c4ca0ba">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a12a7dcb63ce1cc91a28da03ac25c50051e16c42">
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Processo Seletivo - Edital ATAc/EEL/USP 10/2020 | Sorteador de pontos para concursos e processos seletivos</title>
@@ -13,9 +13,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Processo Seletivo - Edital ATAc/EEL/USP 10/2020" />
 <meta property="og:description" content="Processo Seletivo - Edital ATAc/EEL/USP 10/2020" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Sorteador de pontos para concursos e processos seletivos" />
 <script type="application/ld+json">
-{"@type":"WebSite","url":"/","headline":"Processo Seletivo - Edital ATAc/EEL/USP 10/2020","name":"Sorteador de pontos para concursos e processos seletivos","description":"Processo Seletivo - Edital ATAc/EEL/USP 10/2020","@context":"https://schema.org"}</script>
+{"@type":"WebSite","headline":"Processo Seletivo - Edital ATAc/EEL/USP 10/2020","url":"http://localhost:4000/","name":"Sorteador de pontos para concursos e processos seletivos","description":"Processo Seletivo - Edital ATAc/EEL/USP 10/2020","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -76,25 +78,21 @@
 <hr />
 
 <p><button type="button" id="sorteio" class="btn" onclick="document.getElementById('pontosorteado').innerHTML = getRndInteger(1, 10)">Sortear ponto</button>
-<button type="button" id="apagar" class="btn" onclick="resetstyle()">Apagar</button>
+<button type="button" id="apagar" class="btn" onclick="resetstyle()">Apagar seleção</button>
 <button type="button" id="exemplo" class="btn" onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id="oficial" class="btn" onclick="carrega_oficial()">Carregar pontos</button></p>
 
-<h4 id="ponto-sorteado-">Ponto sorteado: <span class="badge" id="pontosorteado">  </span></h4>
+<h3 id="ponto-sorteado-">Ponto sorteado: <span class="badge" id="pontosorteado">  </span></h3>
 
 <hr />
 
 <h3 id="informações">Informações</h3>
 
-<p>O ponto é sorteado usando a seguinte função em <em>javascript</em>:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getRndInteger</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="nx">min</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>que retorna um inteiro aleatório de <code class="language-plaintext highlighter-rouge">min</code> a <code class="language-plaintext highlighter-rouge">max</code>, cujos valores são <code class="language-plaintext highlighter-rouge">1</code> e o número máximo de pontos, respectivamente.</p>
+<ul>
+  <li>Para usar o sorteador, carregue uma das listas (clicando em <strong>Carregar exemplo</strong> ou <strong>Carregar pontos</strong>).</li>
+  <li>Você também pode editar manualmente os campos dos pontos, mas perderá as alterações se fechar ou recarregar a página.</li>
+  <li>Use então o botão <strong>Sortear ponto</strong> para fazer o sorteio. Este botão ficará desabilitado até você clicar em “Apagar seleção”.</li>
+</ul>
 
 <script>
 document.getElementById("sorteio").disabled = true;
@@ -151,6 +149,8 @@ function carrega_exemplo() {
     
   
   document.getElementById("sorteio").disabled = false;
+  document.getElementById("apagar").disabled = true;
+  resetstyle()
 }
 
 function carrega_oficial() {
@@ -187,6 +187,8 @@ function carrega_oficial() {
     
   
   document.getElementById("sorteio").disabled = false;
+  document.getElementById("apagar").disabled = true;
+  resetstyle();
 }
 </script>
 
