@@ -17,7 +17,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ---
 
-<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = getRndInteger({{min}}, {{max}})">Sortear ponto</button>
+<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia({{min}}, {{max}})">Sortear ponto</button>
 <button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
@@ -26,7 +26,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ---
 
-### Informações
+### Como usar
 
 * Para usar o sorteador, carregue uma das listas (clicando em **Carregar exemplo** ou **Carregar pontos**).
 * Você também pode editar manualmente os campos dos pontos, mas perderá as alterações se fechar ou recarregar a página.
@@ -36,12 +36,13 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 document.getElementById("sorteio").disabled = true;
 document.getElementById("apagar").disabled = true;
 
-function getRndInteger(min, max) {
+function sorteia(min, max) {
   var num = Math.floor(Math.random() * (max - min + 1) ) + min;
+  var ponto = document.getElementById(num).value;
   document.getElementById(num).style.fontWeight = "900";
   document.getElementById("sorteio").disabled = true;
   document.getElementById("apagar").disabled = false;
-  return num;
+  return `${num}. ${ponto}`;
 }
 
 function resetstyle() {  
