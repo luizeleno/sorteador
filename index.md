@@ -78,3 +78,7 @@ function carrega_oficial() {
   document.getElementById("sorteio").disabled = false;
 }
 </script>
+
+---
+
+© {{ site.time | date: '%Y' }} [{{ site.name }}]({{ site.dados }}){: target="_blank"}.
