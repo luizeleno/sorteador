@@ -19,10 +19,10 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ---
 
-<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia({{min}}, {{max}})">Sortear ponto</button>
-<button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
+<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia({{min}}, {{max}})">Sortear ponto</button>
+<button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 
 ### Ponto sorteado: <span class="badge" id="pontosorteado"></span>
 
