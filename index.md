@@ -7,13 +7,15 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ## Pontos para a prova didática:
 
+<div class="form__group field">
 {% assign n=min%}
 <ol>
 {% for ponto in site.data.pontossorteio.exemplo %}
-<li><input id='{{n}}' type="text" style="width:100%"></li>
+<li><input class="form__field" id='{{n}}' type="text" style="width:100%"></li>
 {% assign n=n | plus: 1%}
 {% endfor %}
 </ol>
+</div>
 
 ---
 
@@ -22,7 +24,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
 
-### Ponto sorteado: <span class="badge" id="pontosorteado">&nbsp;&nbsp;</span>
+### Ponto sorteado: <span class="badge" id="pontosorteado"></span>
 
 ---
 
@@ -39,7 +41,7 @@ document.getElementById("apagar").disabled = true;
 function sorteia(min, max) {
   var num = Math.floor(Math.random() * (max - min + 1) ) + min;
   var ponto = document.getElementById(num).value;
-  document.getElementById(num).style.fontWeight = "900";
+  document.getElementById(num).classList.add("sorteado");
   document.getElementById("sorteio").disabled = true;
   document.getElementById("apagar").disabled = false;
   return `${num}. ${ponto}`;
@@ -47,8 +49,8 @@ function sorteia(min, max) {
 
 function resetstyle() {  
   for(num={{min}}; num<={{max}}; num++) {
-    document.getElementById(num).style.fontWeight = null;
-    document.getElementById('pontosorteado').innerHTML = "&nbsp;&nbsp;";
+    document.getElementById(num).classList.remove("sorteado");
+    document.getElementById('pontosorteado').innerHTML = "";
     document.getElementById("sorteio").disabled = false;
     document.getElementById("apagar").disabled = true;
   }
