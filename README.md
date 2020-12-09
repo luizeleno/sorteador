@@ -16,4 +16,4 @@ que retorna um inteiro aleatório de `min` a `max`, cujos valores são `1` e o n
 
 ---
 
-© 2020 [Prof. Dr. Luiz T. F. Eleno](http://www.demar.eel.usp.br/docentes/luiz-tadeu-fernandes-eleno.html){: target='_blank'}.
+© 2020 [Prof. Dr. Luiz T. F. Eleno](http://www.demar.eel.usp.br/docentes/luiz-tadeu-fernandes-eleno.html).
