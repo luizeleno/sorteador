@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+---
+title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
+---
 
-You can use the [editor on GitHub](https://github.com/luizeleno/sorteador/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+{% assign min = 1 %}
+{% assign max = site.data.pontossorteio.exemplo | size %}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Pontos para a prova didática:
 
-### Markdown
+{% assign n=min%}
+<ol>
+{% for ponto in site.data.pontossorteio.exemplo %}
+<li><input id='{{n}}' type="text" style="width:100%"></li>
+{% assign n=n | plus: 1%}
+{% endfor %}
+</ol>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+---
 
-```markdown
-Syntax highlighted code block
+<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = getRndInteger({{min}}, {{max}})">Sortear ponto</button>
+<button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar</button>
+<button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
+<button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
 
-# Header 1
-## Header 2
-### Header 3
+#### Ponto sorteado: <span class="badge" id="pontosorteado">&nbsp;&nbsp;</span>
 
-- Bulleted
-- List
+---
 
-1. Numbered
-2. List
+### Informações
 
-**Bold** and _Italic_ and `Code` text
+O ponto é sorteado usando a seguinte função em _javascript_:
 
-[Link](url) and ![Image](src)
+```javascript
+function getRndInteger(min, max) {
+  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
+  return num;
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+que retorna um inteiro aleatório de `min` a `max`, cujos valores são `1` e o número máximo de pontos, respectivamente.
 
-### Jekyll Themes
+<script>
+document.getElementById("sorteio").disabled = true;
+document.getElementById("apagar").disabled = true;
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/luizeleno/sorteador/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+function getRndInteger(min, max) {
+  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
+  document.getElementById(num).style.fontWeight = "900";
+  document.getElementById("sorteio").disabled = true;
+  document.getElementById("apagar").disabled = false;
+  return num;
+}
 
-### Support or Contact
+function resetstyle() {  
+  for(num={{min}}; num<={{max}}; num++) {
+    document.getElementById(num).style.fontWeight = null;
+    document.getElementById('pontosorteado').innerHTML = "&nbsp;&nbsp;";
+    document.getElementById("sorteio").disabled = false;
+    document.getElementById("apagar").disabled = true;
+  }
+}
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+function carrega_exemplo() {
+  {% assign n=1 %}
+  {% for ponto in site.data.pontossorteio.exemplo %}
+    document.getElementById("{{n}}").value = "{{ponto}}";
+    {% assign n=n | plus: 1 %}
+  {% endfor %}
+  document.getElementById("sorteio").disabled = false;
+}
+
+function carrega_oficial() {
+  {% assign n=1 %}
+  {% for ponto in site.data.pontossorteio.oficial %}
+    document.getElementById("{{n}}").value = "{{ponto}}";
+    {% assign n=n | plus: 1 %}
+  {% endfor %}
+  document.getElementById("sorteio").disabled = false;
+}
+</script>
