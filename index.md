@@ -22,7 +22,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
 
-#### Ponto sorteado: <span class="badge" id="pontosorteado">&nbsp;&nbsp;</span>
+### Ponto sorteado: <span class="badge" id="pontosorteado">&nbsp;&nbsp;</span>
 
 ---
 
