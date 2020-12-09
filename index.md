@@ -18,7 +18,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 ---
 
 <button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = getRndInteger({{min}}, {{max}})">Sortear ponto</button>
-<button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar</button>
+<button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
 
@@ -28,17 +28,8 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ### Informações
 
-O ponto é sorteado usando a seguinte função em _javascript_:
-
-```javascript
-function getRndInteger(min, max) {
-  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
-  return num;
-}
-```
-
-que retorna um inteiro aleatório de `min` a `max`, cujos valores são `1` e o número máximo de pontos, respectivamente.
-
+* Para usar o sorteador, carregue uma das listas (clicando em **Carregar exemplo** ou **Carregar pontos**). Use então o botão **Sortear ponto** para fazer o sorteio. Este botão ficará desabilitado até você clicar em "Apagar seleção".
+* 
 <script>
 document.getElementById("sorteio").disabled = true;
 document.getElementById("apagar").disabled = true;
