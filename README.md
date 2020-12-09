@@ -3,7 +3,9 @@ Sorteador de pontos para concursos e processos seletivos online da EEL/USP
 
 ### Informações
 
-O ponto é sorteado usando a seguinte função em _javascript_:
+* Os pontos a serem sorteados estão no arquivo `pontossorteio.yml` do diretório `_data`
+
+* O ponto é sorteado usando a seguinte função em _javascript_:
 
 ```javascript
 function getRndInteger(min, max) {
