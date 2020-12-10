@@ -1,0 +1,72 @@
+<script>
+function abrir() {
+  document.getElementById('pontosfile').click()
+}
+
+// https://www.html5rocks.com/en/tutorials/file/dndfiles//
+function handleFileSelect(evt) {
+  files = evt.target.files; // FileList object
+  file = files[0]
+  
+  reader = new FileReader();
+  reader.readAsText(file);
+  
+  reader.onload = function() {
+    resetstyle()
+    pontos = reader.result.split("\n");
+    for(num={{min}}; num<={{max}}; num++) {
+      document.getElementById(num).value = pontos[num-1];
+    }
+  };
+  
+  reader.onerror = function() {
+    alert(reader.error);
+  };
+}
+
+document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
+
+document.getElementById("sorteio").disabled = true;
+document.getElementById("apagar").disabled = true;
+
+function sorteia(min, max) {
+  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
+  var ponto = document.getElementById(num).value;
+  document.getElementById(num).classList.add("sorteado");
+  document.getElementById("sorteio").disabled = true;
+  document.getElementById("apagar").disabled = false;
+  return `${num}. ${ponto}`;
+}
+
+function resetstyle() {  
+  for(num={{min}}; num<={{max}}; num++) {
+    document.getElementById(num).classList.remove("sorteado");
+    document.getElementById('pontosorteado').innerHTML = "";
+    document.getElementById("sorteio").disabled = false;
+    document.getElementById("apagar").disabled = true;
+  }
+}
+
+function carrega_exemplo() {
+  {% assign n=1 %}
+  {% for ponto in site.data.pontossorteio.exemplo %}
+    document.getElementById("{{n}}").value = "{{ponto}}";
+    {% assign n=n | plus: 1 %}
+  {% endfor %}
+  document.getElementById("sorteio").disabled = false;
+  document.getElementById("apagar").disabled = true;
+  document.getElementById("pontosfile").value = '';
+  resetstyle()
+}
+
+function carrega_oficial() {
+  {% assign n=1 %}
+  {% for ponto in site.data.pontossorteio.oficial %}
+    document.getElementById("{{n}}").value = "{{ponto}}";
+    {% assign n=n | plus: 1 %}
+  {% endfor %}
+  document.getElementById("sorteio").disabled = false;
+  document.getElementById("apagar").disabled = true;
+  resetstyle();
+}
+</script>

@@ -17,10 +17,13 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 </ol>
 </div>
 
+
 ---
 
+<input type="file" id="pontosfile" hidden />
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
-<button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button>
+<!-- <button type="button" id='oficial' class='btn' onclick="carrega_oficial()">Carregar pontos</button> -->
+<input type="button" id='abrir' class='btn' onclick="abrir()" value="Abrir arquivo...">
 <button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia({{min}}, {{max}})">Sortear ponto</button>
 <button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 
@@ -30,54 +33,16 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ### Como usar:
 
-* Para usar o sorteador, carregue uma das listas (clicando em **Carregar exemplo** ou **Carregar pontos**).
+* Para usar o sorteador, carregue uma lista de pontos clicando em **_Abrir arquivo..._**. O arquivo com os pontos deve ser um arquivo texto (.txt, .csv, etc.) com um ponto por linha (sem linhas em branco!)
 * Você também pode editar manualmente os campos dos pontos, mas perderá as alterações se fechar ou recarregar a página.
-* Use então o botão **Sortear ponto** para fazer o sorteio. Este botão ficará desabilitado até você clicar em **Apagar seleção**.
+* Um exemplo para fins de teste do sorteador é obtido clicando em _**Carregar exemplo**_
+* Use então o botão _**Sortear ponto**_ para fazer o sorteio. Este botão ficará desabilitado até você clicar em _**Apagar seleção**_.
 
-<script>
-document.getElementById("sorteio").disabled = true;
-document.getElementById("apagar").disabled = true;
+---
 
-function sorteia(min, max) {
-  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
-  var ponto = document.getElementById(num).value;
-  document.getElementById(num).classList.add("sorteado");
-  document.getElementById("sorteio").disabled = true;
-  document.getElementById("apagar").disabled = false;
-  return `${num}. ${ponto}`;
-}
+#### _Atenção_: o sorteador funciona apenas para uma lista de exatamente dez (10) pontos. Planejo no futuro remover essa restrição. Peço desculpas pelo inconveniente.
 
-function resetstyle() {  
-  for(num={{min}}; num<={{max}}; num++) {
-    document.getElementById(num).classList.remove("sorteado");
-    document.getElementById('pontosorteado').innerHTML = "";
-    document.getElementById("sorteio").disabled = false;
-    document.getElementById("apagar").disabled = true;
-  }
-}
-
-function carrega_exemplo() {
-  {% assign n=1 %}
-  {% for ponto in site.data.pontossorteio.exemplo %}
-    document.getElementById("{{n}}").value = "{{ponto}}";
-    {% assign n=n | plus: 1 %}
-  {% endfor %}
-  document.getElementById("sorteio").disabled = false;
-  document.getElementById("apagar").disabled = true;
-  resetstyle()
-}
-
-function carrega_oficial() {
-  {% assign n=1 %}
-  {% for ponto in site.data.pontossorteio.oficial %}
-    document.getElementById("{{n}}").value = "{{ponto}}";
-    {% assign n=n | plus: 1 %}
-  {% endfor %}
-  document.getElementById("sorteio").disabled = false;
-  document.getElementById("apagar").disabled = true;
-  resetstyle();
-}
-</script>
+{% include scripts.html %}
 
 ---
 
