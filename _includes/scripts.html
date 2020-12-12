@@ -4,10 +4,8 @@ document.getElementById("sorteio").disabled = true;
 document.getElementById("apagar").disabled = true;
 document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
 
-{% assign N = site.data.pontossorteio.exemplo.size %}
-window.N = {{N}};
-{% assign MAX = 20 %}
-window.MAX = {{MAX}};
+window.N = {{site.data.pontossorteio.exemplo.size}};
+window.MAX = 20;
 
 function abrir() {
   document.getElementById('pontosfile').click()
@@ -39,13 +37,13 @@ function handleFileSelect(evt) {
       inps.appendChild(input);
       document.getElementById(num).value = `${num}. ${pontos[num-1]}`;
     }
-    
-    resetstyle();
   };
 
   reader.onerror = function() {
     alert(reader.error);
   };
+  
+  resetstyle();
 }
 
 function sorteia(min, max) {
@@ -58,6 +56,7 @@ function sorteia(min, max) {
 }
 
 function resetstyle() {
+  document.getElementById("pontosfile").value = "";
   for(num=1; num<=window.N; num++) {
     document.getElementById(num).classList.remove("sorteado");
     document.getElementById('pontosorteado').innerHTML = "";
@@ -84,7 +83,6 @@ function carrega_exemplo() {
     inps.appendChild(input);
     document.getElementById({{n}}).value = "{{n}}. {{ponto}}";
   {% endfor %}
-  document.getElementById("pontosfile").value = '';
   resetstyle();
 }
 

@@ -20,9 +20,9 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 ### Como usar:
 
-* Para usar o sorteador, carregue uma lista de pontos clicando em **_Abrir arquivo..._**. O arquivo  deve ser em formato texto (.txt, .csv, etc.) com um ponto por linha
+* Para usar o sorteador, carregue uma lista de pontos clicando em **_Abrir arquivo..._**. O arquivo  deve ser em formato texto (.txt, .csv, etc.) com um ponto por linha.
 * Você também pode editar manualmente os campos dos pontos, mas perderá as alterações se fechar ou recarregar a página (futuras versões terão um botão _Salvar_).
-* Um exemplo para fins de teste do sorteador é obtido clicando em _**Carregar exemplo**_
+* Um exemplo para fins de teste do sorteador é obtido clicando em _**Carregar exemplo**_.
 * Use então o botão _**Sortear ponto**_ para fazer o sorteio. Este botão ficará desabilitado até você clicar em _**Apagar seleção**_.
 
 ---
