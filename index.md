@@ -5,11 +5,11 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 ## Pontos para a prova didática:
 
 <output id="inputs"></output>
+<input type="file" id="pontosfile" accept=".txt, .csv, .dat, .yml" hidden />
 
 ---
 
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
-<input type="file" id="pontosfile" hidden />
 <input type="button" id='abrir' class='btn' onclick="abrir()" value="Abrir arquivo...">
 <button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia(1, window.N)">Sortear ponto</button>
 <button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
