@@ -8,6 +8,7 @@ $secondary: #38ef7d;
 $selected: #e09b3a;
 $white: #fff;
 $gray: #9b9b9b;
+
 .form__group {
   position: relative;
   padding: 0px 0 0;
@@ -65,27 +66,6 @@ $gray: #9b9b9b;
 }
 
 .sorteado {
-  ~ .form__field {
-    font-family: inherit;
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid $gray;
-    outline: 0;
-    // font-size: 1.3rem;
-    color: $selected;
-    padding: 0px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-  }
-  ~ .form__label {
-    position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    // font-size: 1rem;
-    color: $selected;
-    font-weight:700;
-  }
   color: $selected;
   padding-bottom: 6px;
   font-weight: 700;

@@ -1,33 +1,52 @@
 <script>
+
+document.getElementById("sorteio").disabled = true;
+document.getElementById("apagar").disabled = true;
+document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
+
+{% assign N = site.data.pontossorteio.exemplo.size %}
+window.N = {{N}};
+{% assign MAX = 20 %}
+window.MAX = {{MAX}};
+
 function abrir() {
   document.getElementById('pontosfile').click()
 }
 
-// https://www.html5rocks.com/en/tutorials/file/dndfiles//
 function handleFileSelect(evt) {
-  files = evt.target.files; // FileList object
-  file = files[0]
   
+  // https://www.html5rocks.com/en/tutorials/file/dndfiles//
+  files = evt.target.files;
+  file = files[0]
+
   reader = new FileReader();
   reader.readAsText(file);
-  
+
   reader.onload = function() {
-    resetstyle()
     pontos = reader.result.split("\n");
-    for(num={{min}}; num<={{max}}; num++) {
-      document.getElementById(num).value = pontos[num-1];
+    window.N = pontos.length - 1;
+    
+    if(window.N > window.MAX) {
+      alert(`Muitos pontos no arquivo!\nLendo apenas os ${window.MAX} primeiros.`);
+      window.N = window.MAX;
     }
+    
+    var inps = document.getElementById('inputs');
+    inps.innerHTML = "";
+    
+    for(num=1; num<=window.N; num++) {
+      input = cria_input(num);
+      inps.appendChild(input);
+      document.getElementById(num).value = `${num}. ${pontos[num-1]}`;
+    }
+    
+    resetstyle();
   };
-  
+
   reader.onerror = function() {
     alert(reader.error);
   };
 }
-
-document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
-
-document.getElementById("sorteio").disabled = true;
-document.getElementById("apagar").disabled = true;
 
 function sorteia(min, max) {
   var num = Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -35,11 +54,11 @@ function sorteia(min, max) {
   document.getElementById(num).classList.add("sorteado");
   document.getElementById("sorteio").disabled = true;
   document.getElementById("apagar").disabled = false;
-  return `${num}. ${ponto}`;
+  return ponto;
 }
 
-function resetstyle() {  
-  for(num={{min}}; num<={{max}}; num++) {
+function resetstyle() {
+  for(num=1; num<=window.N; num++) {
     document.getElementById(num).classList.remove("sorteado");
     document.getElementById('pontosorteado').innerHTML = "";
     document.getElementById("sorteio").disabled = false;
@@ -47,26 +66,26 @@ function resetstyle() {
   }
 }
 
-function carrega_exemplo() {
-  {% assign n=1 %}
-  {% for ponto in site.data.pontossorteio.exemplo %}
-    document.getElementById("{{n}}").value = "{{ponto}}";
-    {% assign n=n | plus: 1 %}
-  {% endfor %}
-  document.getElementById("sorteio").disabled = false;
-  document.getElementById("apagar").disabled = true;
-  document.getElementById("pontosfile").value = '';
-  resetstyle()
+function cria_input(num) {
+  var input = document.createElement("input");
+  input.type = "text";
+  input.id = num;
+  input.className = "form__field";
+  return input;
 }
 
-function carrega_oficial() {
-  {% assign n=1 %}
-  {% for ponto in site.data.pontossorteio.oficial %}
-    document.getElementById("{{n}}").value = "{{ponto}}";
+function carrega_exemplo() {
+  var inps = document.getElementById('inputs');
+  inps.innerHTML = "";
+  {% assign n=0 %}
+  {% for ponto in site.data.pontossorteio.exemplo %}
     {% assign n=n | plus: 1 %}
+    input = cria_input({{n}});
+    inps.appendChild(input);
+    document.getElementById({{n}}).value = "{{n}}. {{ponto}}";
   {% endfor %}
-  document.getElementById("sorteio").disabled = false;
-  document.getElementById("apagar").disabled = true;
+  document.getElementById("pontosfile").value = '';
   resetstyle();
 }
+
 </script>
