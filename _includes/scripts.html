@@ -37,13 +37,15 @@ function handleFileSelect(evt) {
       inps.appendChild(input);
       document.getElementById(num).value = `${num}. ${pontos[num-1]}`;
     }
+    
+    resetstyle();
+    
   };
 
   reader.onerror = function() {
     alert(reader.error);
   };
   
-  resetstyle();
 }
 
 function sorteia(min, max) {
