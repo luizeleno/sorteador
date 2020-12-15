@@ -21,7 +21,8 @@ Sorteador de pontos para concursos e processos seletivos online da EEL/USP
 
 ### Observações:
 
-* Julgamos pertinente estabelecer um máximo de 20 pontos. Se seu arquivo contiver mais pontos, eles serão ignorados, mas uma mensagem será exibida.
+* Julgamos pertinente estabelecer um número máximo de 20 pontos. Se seu arquivo contiver mais pontos, apenas os 20 primeiros serão lidos e uma mensagem será exibida.
+  - a variável `MAXPONTOS` no arquivo `_config.yml` controla este número máximo (padrão: 20)
 * **_Importante_**: o arquivo a ser lido deve conter um ponto por linha, com a última linha (e apena ela!) em branco, como neste [exemplo](//computeel.org/sorteador/assets/exemplo/exemplo-pontos.txt).
 
 ---
