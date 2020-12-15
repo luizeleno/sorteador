@@ -21,7 +21,7 @@ Sorteador de pontos para concursos e processos seletivos online da EEL/USP
 
 ### Observações:
 
-* Julgamos pertinente estabelecer um número máximo de 20 pontos. Se seu arquivo contiver mais pontos, apenas os primeiros serão lidos e uma mensagem será exibida.
+* Julgamos pertinente estabelecer um número máximo de 20 pontos. Se seu arquivo contiver mais pontos, apenas os 20 primeiros serão lidos e uma mensagem será exibida.
 * **_Importante_**: o arquivo a ser lido deve conter um ponto por linha, com a última linha (e apena ela!) em branco, como neste [exemplo](//computeel.org/sorteador/assets/exemplo/exemplo-pontos.txt).
 
 ---
