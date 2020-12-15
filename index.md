@@ -1,5 +1,5 @@
 ---
-title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
+title: Processo Seletivo - Editais ATAc/EEL/USP
 ---
 
 ## Pontos para a prova didática:
@@ -11,7 +11,7 @@ title: Processo Seletivo - Edital ATAc/EEL/USP 10/2020
 
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <input type="button" id='abrir' class='btn' onclick="abrir()" value="Abrir arquivo...">
-<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia(1, window.N)">Sortear ponto</button>
+<button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia(1, N)">Sortear ponto</button>
 <button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 
 ### Ponto sorteado: <span class="badge" id="pontosorteado"></span>

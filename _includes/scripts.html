@@ -4,8 +4,8 @@ document.getElementById("sorteio").disabled = true;
 document.getElementById("apagar").disabled = true;
 document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
 
-window.N = {{site.data.pontossorteio.exemplo.size}};
-window.MAX = 20;
+N = {{site.data.pontossorteio.exemplo.size}};
+MAX = 20;
 
 function abrir() {
   document.getElementById('pontosfile').click()
@@ -14,26 +14,26 @@ function abrir() {
 function handleFileSelect(evt) {
   
   // https://www.html5rocks.com/en/tutorials/file/dndfiles//
-  files = evt.target.files;
-  file = files[0]
+  var files = evt.target.files;
+  var file = files[0]
 
-  reader = new FileReader();
+  var reader = new FileReader();
   reader.readAsText(file);
 
   reader.onload = function() {
-    pontos = reader.result.split("\n");
-    window.N = pontos.length - 1;
+    var pontos = reader.result.split("\n");
+    N = pontos.length - 1;
     
-    if(window.N > window.MAX) {
-      alert(`Muitos pontos no arquivo!\nLendo apenas os ${window.MAX} primeiros.`);
-      window.N = window.MAX;
+    if(N > MAX) {
+      alert(`Muitos pontos no arquivo!\nLendo apenas os ${MAX} primeiros.`);
+      N = MAX;
     }
     
     var inps = document.getElementById('inputs');
     inps.innerHTML = "";
     
-    for(num=1; num<=window.N; num++) {
-      input = cria_input(num);
+    for(num=1; num<=N; num++) {
+      var input = cria_input(num);
       inps.appendChild(input);
       document.getElementById(num).value = `${num}. ${pontos[num-1]}`;
     }
@@ -59,7 +59,7 @@ function sorteia(min, max) {
 
 function resetstyle() {
   document.getElementById("pontosfile").value = "";
-  for(num=1; num<=window.N; num++) {
+  for(num=1; num<=N; num++) {
     document.getElementById(num).classList.remove("sorteado");
     document.getElementById('pontosorteado').innerHTML = "";
     document.getElementById("sorteio").disabled = false;
@@ -81,7 +81,7 @@ function carrega_exemplo() {
   {% assign n=0 %}
   {% for ponto in site.data.pontossorteio.exemplo %}
     {% assign n=n | plus: 1 %}
-    input = cria_input({{n}});
+    var input = cria_input({{n}});
     inps.appendChild(input);
     document.getElementById({{n}}).value = "{{n}}. {{ponto}}";
   {% endfor %}
