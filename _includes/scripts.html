@@ -5,7 +5,7 @@ document.getElementById("apagar").disabled = true;
 document.getElementById('pontosfile').addEventListener('change', handleFileSelect, false);
 
 N = {{site.data.pontossorteio.exemplo.size}};
-MAX = 20;
+MAX = {{site.MAXPONTOS}};
 
 function abrir() {
   document.getElementById('pontosfile').click()
