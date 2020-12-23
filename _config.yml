@@ -10,3 +10,5 @@ name: Prof. Dr. Luiz T. F. Eleno
 dados: "http://www.demar.eel.usp.br/docentes/luiz-tadeu-fernandes-eleno.html"
 
 MAXPONTOS: 20  # número máximo de pontos
+
+github: [metadata]

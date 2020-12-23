@@ -9,12 +9,10 @@ $selected: #e09b3a;
 $white: #fff;
 $gray: #9b9b9b;
 
-.form__group {
-  position: relative;
-  padding: 0px 0 0;
-  margin-top: 0px;
-  width: 100%;
-}
+// Disabled Button
+
+
+// Input
 
 .form__field {
   font-family: inherit;
@@ -37,15 +35,6 @@ $gray: #9b9b9b;
     cursor: text;
     top: 20px;
   }
-}
-
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  // font-size: 1rem;
-  color: $gray;
 }
 
 .form__field:focus {
