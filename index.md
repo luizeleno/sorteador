@@ -14,6 +14,8 @@ title: Processo Seletivo - Editais ATAc/EEL/USP
 
 ---
 
+## Definição dos pontos:
+
 <input type="file" id="pontosfile" accept=".txt, .csv, .dat, .yml" hidden />
 
 <button type="button" id='mais' class='btn' onclick="add_input()">Adicionar ponto</button>
