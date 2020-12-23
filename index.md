@@ -14,7 +14,7 @@ title: Processo Seletivo - Editais ATAc/EEL/USP
 
 ---
 
-## Definição dos pontos:
+### Definição dos pontos:
 
 <input type="file" id="pontosfile" accept=".txt, .csv, .dat, .yml" hidden />
 
