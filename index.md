@@ -10,6 +10,8 @@ title: Processo Seletivo - Editais ATAc/EEL/USP
 <button type="button" id='sorteio' class='btn' onclick="document.getElementById('pontosorteado').innerHTML = sorteia(1, N)">Sortear ponto</button>
 <button type="button" id='apagar' class='btn' onclick="resetstyle()">Apagar seleção</button>
 
+### Ponto sorteado: <span class="badge" id="pontosorteado"></span>
+
 ---
 
 <input type="file" id="pontosfile" accept=".txt, .csv, .dat, .yml" hidden />
@@ -21,8 +23,6 @@ title: Processo Seletivo - Editais ATAc/EEL/USP
 <button type="button" id='exemplo' class='btn' onclick="carrega_exemplo()">Carregar exemplo</button>
 <button type="button" id='abrir' class='btn' onclick="abrir()">Abrir arquivo...</button>
 <a type="button" id='salvar' class='btn' download="pontos.txt" onclick="lista_pontos()">Salvar arquivo...</a>
-
-### Ponto sorteado: <span class="badge" id="pontosorteado"></span>
 
 ---
 
