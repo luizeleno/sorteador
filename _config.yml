@@ -1,7 +1,7 @@
 baseurl: /sorteador
 # github: [metadata]
 
-show_downloads: true
+#show_downloads: true
 
 theme: jekyll-theme-hacker
 
