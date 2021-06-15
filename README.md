@@ -26,4 +26,4 @@ Sorteador de pontos para concursos e processos seletivos online da EEL/USP
 
 ---
 
-© 2020 [Prof. Dr. Luiz T. F. Eleno](http://www.demar.eel.usp.br/docentes/luiz-tadeu-fernandes-eleno.html).
+© 2020 [Prof. Dr. Luiz T. F. Eleno](https://computeel.org/Demar/docentes/luiz-tadeu-fernandes-eleno.html).
