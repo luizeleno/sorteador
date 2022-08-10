@@ -2,7 +2,7 @@
 title: Processo Seletivo - Editais ATAc/EEL/USP
 ---
 
-## Pontos para a prova didática:
+## Pontos para prova didática ou escrita:
 
 <output id="inputs">
 </output>
